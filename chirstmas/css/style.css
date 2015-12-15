@@ -102,15 +102,15 @@ body {
 	/*height: 134px;*/
 	z-index: 1
 }
-.page1.current .content .snow{
+.page1.current .snow{
 	position: absolute;
-	top: 20px;
-	left: 200px;
-	background: url(../images/snow.png) no-repeat;
-	background-size: 56px 50px;
-	width: 56px;
-	height: 50px;
-	z-index: 0
+    top: 13px;
+    left: 61%;
+    background: url(../images/snow.png) no-repeat;
+    background-size: 56px 50px;
+    width: 56px;
+    height: 50px;
+    z-index: 0;
 }
 .page1.current .main {
     position: absolute;
@@ -194,57 +194,29 @@ body {
 	z-index: 3
 }
 
-.page1.current .main .word{
-	/*background: url(../images/words.png) no-repeat;*/
-	background-size: 130px 121px;
+
+.page1.current .main li{
 	position: absolute;
-	left: 174px;
-	top: 62px;
-	z-index: 6
+	top:14%;
 }
-.page1.current .main .word.word1{
-	width: 82px;
-	height: 15px;
-}
-.page1.current .main .word.word2{
-	background-position: -20px -30px;
-	width: 92px;
-	height: 17px;
-	top: 84px;
-	left: 190px;
-}
-.page1.current .main .word.word3{
-	background-position: -35px -57px;
-	width: 92px;
-	height: 17px;
-	top: 104px;
-	left: 204px;
-}
-.page1.current .main .word.word4{
-	background-position: -53px -90px;
-	width: 77px;
-	height: 32px;
-	top: 130px;
-	left: 230px;
+.page1.current .main li span{
+	display: block;
 }
 .page1.current .main .tears{
 	background: url(../images/tears.png) no-repeat;
-	background-size: 70px 27px;
-	width: 70px;
-	height: 27px;
-	position: absolute;
-	left: -2px;
-	top: 21px;
-	z-index: 7
+    background-size: 70px 27px;
+    width: 70px;
+    height: 27px;
+    position: absolute;
+    left: 62%;
+    top: 62%;
+    z-index: 7;
 }
 .page1.current .footer{
-	background: url(../images/btn1.png) no-repeat;
-	background-size: 198px 59px;
-	width: 198px;
-	height: 59px;
+	width: 100%;
 	position: absolute;
-	left: 60px;
-	top: 492px;
+	left: 0;
+	top: 85%;
 	z-index: 7
 }
 .page1.current .pointer,.page2.current .pointer{
@@ -299,7 +271,7 @@ body {
     top: 82%;
     z-index: 20;
 }
-.page2.current .pointer1{
+.page1.current .pointer1,.page2.current .pointer1{
 	top:0;
 	position: absolute;
 	left: 0;
