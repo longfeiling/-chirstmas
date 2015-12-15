@@ -238,28 +238,12 @@ body {
 	top:0;
 }
 
-/*.page2.current .hd{
-	background-image: url(../images/title2.png);
-	z-index: 2;
-}*/
-/*.page2.current .bd .bg{
-	background-image: url(../images/bg2-1.png);
-	z-index: 2;
-}*/
-/*.page2.current .bd .goods{
-	background-image: url(../images/goods.png);
-	z-index: 4;
-}*/
-/*.page2.current .bd .names{
-	background-image: url(../images/names.png);
-	z-index: 3;
-}*/
 .page2.current .tips{
 	background-size: 320px 568px;
     width: 100%;
     position: absolute;
     left: 0;
-    top: 75%;
+    top: 76%;
     z-index: 10;
 
 }
@@ -291,24 +275,36 @@ body {
 }
 
 .page3.current .hd{
-	background:  url(../images/title3.png) no-repeat;
 	background-size:220px 110px;
-	width: 220px;
-	height: 110px;
+	width: 100%;
 	position: absolute;
-	left: 40px;
-	top:17px;
+	left: 0;
+	top:0;
+}
+.page3.current .bd{
+	width: 320px;
+	height: 568px;
+	position: absolute;
+	left: 50%;
+	margin-left: -160px;
+	top: 50%;
+	margin-top: -284px;
 }
 .page3.current .bd .bg{
 	background:  url(../images/tree3-1.png) no-repeat;
 	background-size:320px 568px;
 	width: 320px;
 	height: 568px;
+	left: -50%;
+	top:50%;
+	z-index: 10;
+
+}
+.page3.current .fd{
+	width: 100%;
 	position: absolute;
 	left: 0;
-	top:0;
-	z-index: 3;
-
+	top:76%;
 }
 .page3.current .bd .icon{
 	background:  url(../images/icon3.png) no-repeat;
@@ -778,7 +774,7 @@ body {
 	z-index:30;
 	display:none
 }
-.page.page2{display: none;}
+.page.page2,.page.page3{display: none;}
 
 
 
