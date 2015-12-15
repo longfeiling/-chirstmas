@@ -161,9 +161,12 @@
         </div>
         <div class="page page4">
         <div class="layer"></div>
-            <div class="content">
-                <div class="hd"></div>
+            <div class="content1">
+                <div class="hd">
+                     <img src="images/logo.png" />
+                </div>
                 <div class="bd">
+                    <img src="images/icon4-1.png" />
                     <div class="goods animated zoomIn"></div>
                     <div class="flowers animated infinite zoomIn delay05"></div>
                 </div>
@@ -231,16 +234,15 @@ window.onload = function(){
             }
 
             setTimeout(function(){
-                $(".goods .icon5").addClass("tada");
-                if($(".goods .icon5").hasClass("tada")){
-                    $('.page.page3').removeClass("current");
-                    $('.page.page4').addClass("current");
+                $(".goods .icon"+(index+1)).addClass("tada");
+                setTimeout(function(){
+                    if($(".goods .icon"+(index+1)).hasClass("tada")){
+                    $('.page.page3').hide().removeClass("current");
+                    $('.page.page4').show().addClass("current");
                 }
-                 $('.page.page3').removeClass("current");
-                 $('.page.page4').addClass("current");
+                },1000)
                 
-                
-            },100*num+1000);
+            },100*num+500);
             return false;
         });
 

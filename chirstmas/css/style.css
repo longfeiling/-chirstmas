@@ -575,30 +575,14 @@ body {
 
 
 .page4.current .hd{
-	background:  url(../images/logo.png) no-repeat;
-	background-size: 111px 49px;
-	width: 111px;
-	height: 49px;
+	width: 100%;
 	position: absolute;
-	right: 10px;
-	top:25px;
+	top:0;
 }
 .page4.current .bd{
-	background:  url(../images/icon4-1.png) no-repeat;
-	background-size: 295px 387px;
-	width: 295px;
-	height: 387px;
+	width: 100%;
 	position: absolute;
-	top:37px;
-	left: 0;
-}
-.page4.current .bd{
-	background:  url(../images/icon4-1.png) no-repeat;
-	background-size: 295px 387px;
-	width: 295px;
-	height: 387px;
-	position: absolute;
-	top:37px;
+	top:0;
 	left: 0;
 }
 .page4.current .bd .flowers{
@@ -607,8 +591,10 @@ body {
 	width: 270px;
 	height: 258px;
 	position: absolute;
-	top:190px;
-	left:38px;
+	top:77%;
+	left:50%;
+	margin-left: -135px;
+	margin-top: -129px;
 }
 .page4.current .bd .goods{
 	background-image:  url(../images/goods/box.png);
@@ -616,8 +602,10 @@ body {
 	width: 148px;
 	height: 116px;
 	position: absolute;
-	left:86px;
-	top: 243px;
+	top:77%;
+	left:50%;
+	margin-left: -74px;
+	margin-top: -58px;
 }
 .page4.current .bd .goods.good1{
 	background-image:  url(../images/goods/50.png);
@@ -641,9 +629,10 @@ body {
 	width: 320px;
 	height: 130px;
 	position: absolute;
-	top:438px;
-	left: 0;
-	margin:0 20px;
+	top:90%;
+	left: 53%;
+	margin-left:-160px;
+	margin-top:-57px;
 }
 .page4.current .fd .txt{
 	background: url(../images/btn4.png) 0 0 no-repeat;
@@ -774,7 +763,7 @@ body {
 	z-index:30;
 	display:none
 }
-.page.page2,.page.page3{display: none;}
+.page.page2,.page.page3,.page.page4{display: none;}
 
 
 
