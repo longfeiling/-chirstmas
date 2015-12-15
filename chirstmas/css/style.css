@@ -295,9 +295,10 @@ body {
 	background-size:320px 568px;
 	width: 320px;
 	height: 568px;
-	left: -50%;
-	top:50%;
-	z-index: 10;
+	left: 0;
+	top:0;
+	z-index: 3;
+	position: absolute;
 
 }
 .page3.current .fd{
@@ -305,6 +306,7 @@ body {
 	position: absolute;
 	left: 0;
 	top:76%;
+	z-index: 6;
 }
 .page3.current .bd .icon{
 	background:  url(../images/icon3.png) no-repeat;
