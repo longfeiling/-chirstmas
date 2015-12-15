@@ -26,30 +26,23 @@
     <div class="full_page">
     <div class="bodyovery"></div>
         <div class="page page1 current">
-           <div class="content">
+           <div class="content1">
                <div class="header animated fadeIn">
-                   <div class="title"></div>
+                   <div class="title">
+                       <img src="images/title1.png" />
+                   </div>
                    <div class="snow animated infinite"></div>
                </div>
                <div class="main">
+                    <img src="images/bd1.png">
                    <ul>
-                       <li class="tree">
-                           <span class="icon1"></span>
-                           <span class="icon2"></span>
-                           <span class="icon3"></span>
-                           <span class="icon4"></span>
-                           <span class="icon5"></span>
-                       </li>
-                       <li class="gift"></li>
                        <li>
                            <span class="word word1 animated fadeInLeft delay05"></span>
                            <span class="word word2 animated fadeInLeft delay15"></span>
                            <span class="word word3 animated fadeInLeft delay25"></span>
                            <span class="word word4 animated fadeInLeftTada delay35"></span>
                        </li>
-                       <li class="people">
-                           <span class="tears animated infinite tada"></span>
-                       </li>
+                       
                    </ul>
                </div>
                <div class="footer">
@@ -69,14 +62,19 @@
                     </div>
                     <div class="goods animated fadeIndownTada">
                         <img src="images/goods.png" width="100%">
-                        <span class="tips J_tips"></span>
                     </div>
                     <div class="names animated fadeIn delay10">
                         <img src="images/names.png" width="100%">
                     </div>
                 </div>
+                <span class="tips J_tips animated fadeIndownTada">
+                <img src="images/tips.png" >
+                </span>
                 <div class="fd animated fadeIn delay10">
-                    <span class="pointer animated infinite flash"></span>
+                    <img src="images/btn2.png" />
+                    <span class="pointer1 animated infinite flash">
+                        <img src="images/pointer.png" />
+                    </span>
                 </div>
                 
             </div>
@@ -200,7 +198,7 @@ window.onload = function(){
 
         // 进入第四页
          $('.page3 .icon.clickBtn ').on("click",function(){
-            var index = getRandom(0, 6);    //随机的一个数   6 ，10,16,21,27,34
+            var index = parseInt(6*Math.random());    //随机的一个数   6 ，10,16,21,27,34
             var num = numarr[index];
             onLamp();
             function onLamp(){
