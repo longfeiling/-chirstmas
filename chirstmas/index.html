@@ -29,27 +29,27 @@
            <div class="content1">
                <div class="header animated fadeIn">
                    <div class="title">
-                       <img src="images/title1.png" />
+                       <img src="images/christmas/title1.png" />
                    </div>
                    <div class="snow animated infinite">
-                        <img src="images/snow.png" />
+                        <img src="images/christmas/snow.png" />
                    </div>
                </div>
                <div class="main">
-                    <img src="images/bd1.png">
+                    <img src="images/christmas/bd1.png">
                    <ul>
                        <li>
                            <span class="word word1 animated fadeInLeft delay05">
-                               <img src="images/word1.png" />
+                               <img src="images/christmas/word1.png" />
                            </span>
                            <span class="word word2 animated fadeInLeft delay15">
-                               <img src="images/word2.png" />
+                               <img src="images/christmas/word2.png" />
                            </span>
                            <span class="word word3 animated fadeInLeft delay25">
-                               <img src="images/word3.png" />
+                               <img src="images/christmas/word3.png" />
                            </span>
                            <span class="word word4 animated fadeInLeftTada delay35">
-                               <img src="images/word4.png" />
+                               <img src="images/christmas/word4.png" />
                            </span>
                        </li>
                       <li class="tears animated infinite tada">
@@ -58,9 +58,9 @@
                    </ul>
                </div>
                <div class="footer">
-                    <img src="images/btn1-1.png" />
+                    <img src="images/christmas/btn1-1.png" />
                    <span class="pointer1 animated infinite flash">
-                        <img src="images/pointer1-1.png" />
+                        <img src="images/christmas/pointer1-1.png" />
                    </span>
                </div>
            </div>
@@ -68,27 +68,27 @@
         <div class="page page2">
             <div class="content1">
                 <div class="hd animated fadeInLeftTada delay10">
-                <img src="images/title2.png" width="100%">
+                <img src="images/christmas/title2.png" width="100%">
                     
                 </div>
                 <div class="bd">
                     <div class="bg animated fadeIndownTada">
-                        <img src="images/bg2-1.png" width="100%">
+                        <img src="images/christmas/bg2-1.png" width="100%">
                     </div>
                     <div class="goods animated fadeIndownTada">
-                        <img src="images/goods.png" width="100%">
+                        <img src="images/christmas/goods.png" width="100%">
                     </div>
                     <div class="names animated fadeIn delay10">
-                        <img src="images/names.png" width="100%">
+                        <img src="images/christmas/names.png" width="100%">
                     </div>
                 </div>
                 <span class="tips J_tips animated fadeIndownTada">
-                <img src="images/tips.png" >
+                <img src="images/christmas/tips.png" >
                 </span>
                 <div class="fd animated fadeIn delay10">
-                    <img src="images/btn2.png" />
+                    <img src="images/christmas/btn2.png" />
                     <span class="pointer1 animated infinite flash">
-                        <img src="images/pointer.png" />
+                        <img src="images/christmas/pointer.png" />
                     </span>
                 </div>
                 
@@ -99,7 +99,7 @@
         <div class="page page3">
             <div class="content1">
                 <div class="hd">
-                    <img src="images/title3.png" />
+                    <img src="images/christmas/title3.png" />
                 </div>
                 <div class="bd">
                     <div class="bg"></div>
@@ -155,7 +155,7 @@
                     </div>
                 </div>
                 <div class="fd">
-                    <img src="images/footer3.png" />
+                    <img src="images/christmas/footer3.png" />
                 </div>
             </div>
         </div>
@@ -163,10 +163,10 @@
         <div class="layer"></div>
             <div class="content1">
                 <div class="hd">
-                     <img src="images/logo.png" />
+                     <img src="images/christmas/logo.png" />
                 </div>
                 <div class="bd">
-                    <img src="images/icon4-1.png" />
+                    <img src="images/christmas/icon4-1.png" />
                     <div class="goods animated zoomIn"></div>
                     <div class="flowers animated infinite zoomIn delay05"></div>
                 </div>
@@ -202,6 +202,7 @@
 
 window.onload = function(){
     $("#loading").hide();
+    $('.page.page1').addClass('current');
     $(function(){
          var NUM = 0,
              numarr = [5,10,16,21,26,29,33];
@@ -262,19 +263,32 @@ window.onload = function(){
             }
             $.ajax({
                 url : "/Activity/Lottery/ajax_christmas",
-                post : "post",
+                dataType: 'json',
+                type : "post",
                 data : {
                     'phone' : phone
                 },
-                status : function(data){
-                    if(data.statusCode === 0){
-                        console.log(data.data);
+                success : function(res){
+                    if(res.statusCode === 0){
+                        console.log(res.data);
+                        $(".input_wrap").hide();
+                        $(".account").show();
+                        $(".phone").html(phone);
+                    }else{
+                        $('body').loader({
+                            status: 'error',
+                            text: res.msg
+                        });
                     }
+                },
+                error : function(){
+                    $('body').loader({
+                        status: 'error',
+                        text: '数据获取失败'
+                    });
                 }
-            })
-            $(".input_wrap").hide();
-            $(".account").show();
-            $(".phone").html(phone);
+            });
+           
 
             return false;
         })
@@ -283,7 +297,9 @@ window.onload = function(){
            $('.page4 .layer').show();
             return false;
         })
-
+         $('.page4 .layer').on('click',function(){
+             $('.page4 .layer').hide();
+         })
 
         // 图二显示点击显示活动规则
         $('.tips').on('click',function(){
@@ -312,14 +328,11 @@ window.onload = function(){
     });
 }
 
-// 获取随机数
-function getRandom(min, max){
-    var r = Math.random() * (max - min);
-    var re = Math.round(r + min);
-    re = Math.max(Math.min(re, max), min)
-     
-    return re;
-}
+// 修改手机号码
+$(".modify").on("click",function(){
+     $(".input_wrap").show();
+     $(".account").hide();
+})
 
 
 
