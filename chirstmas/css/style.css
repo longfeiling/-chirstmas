@@ -28,6 +28,7 @@ html,body{
 body {
 	font-size: 14px;
 	font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	background-color: #d23337;
 }
 
 /*弹出窗*/
@@ -58,17 +59,21 @@ body {
 .full_page .page1.current{
 	background-image :url(../images/christmas/bg1.png);
 	overflow: hidden;
+	background-color: #d23337;
 }
 .full_page .page2.current{
 	background-image :url(../images/christmas/bg2.png);
+	background-color: #078669;
 	overflow: hidden;
 }
 .full_page .page3.current{
 	background-image :url(../images/christmas/bg3.png);
+	background-color: #d23337;
 	overflow: hidden;
 }
 .full_page .page4.current{
 	background-image :url(../images/christmas/bg2.png);
+	background-color: #078669;
 	overflow: hidden;
 }
 .full_page .page{
@@ -97,10 +102,7 @@ body {
 	position: absolute;
 	top: 27px;
 	left: 0;
-	/*background: url(../images/christmas/title1.png) no-repeat;*/
-	background-size: 204px 134px;
 	width: 100%;
-	/*height: 134px;*/
 	z-index: 1
 }
 .page1.current .snow{
