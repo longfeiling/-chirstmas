@@ -48,7 +48,8 @@ body {
     max-width: 640px;
     min-width: 320px;
     margin: 0 auto;
-    min-height: 568px;
+    min-height: 560px;
+    overflow: hidden;
 }
 
 .full_page{
@@ -93,14 +94,14 @@ body {
 }
 .page1.current .title{
 	position: absolute;
-	top: 27px;
+	top: 10px;
 	left: 0;
 	width: 100%;
 	z-index: 1
 }
 .page1.current .snow{
 	position: absolute;
-    top: 13px;
+    top: 0;
     left: 61%;
     background: url(../images/christmas/snow.png) no-repeat;
     background-size: 56px 50px;
@@ -212,7 +213,7 @@ body {
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top: 85%;
+	top: 88%;
 	z-index: 7
 }
 .page1.current .pointer,.page2.current .pointer{
@@ -234,27 +235,35 @@ body {
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top:15%;
+	top:15.8%;
 }
 
 .page2.current .tips{
     width: 100%;
     position: absolute;
     left: 0;
-    top: 71%;
+    top: 71.5%;
     z-index: 10;
-
+}
+@media (min-width:350px) and (max-width: 376px) {
+	.page2.current .tips{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 74%;
+    z-index: 10;
+ }
 }
 .page2.current .fd{
 	background-size: 320px 568px;
     width: 100%;
     position: absolute;
     left: 0;
-    top: 85%;
+    top: 84.4%;
     z-index: 20;
 }
 .page1.current .pointer1{
-	top:33%;
+	top:28.5%;
 	position: absolute;
 	left: 0;
 	z-index: 5;
@@ -283,7 +292,7 @@ body {
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top:0;
+	top:2%;
 }
 .page3.current .bd{
 	width: 320px;
@@ -347,7 +356,7 @@ body {
 	left: 210px;
 	top: 361px;
 }
-.page3.current .bd .icon.icon6{
+.page3.current .bd .icon.icon8{
 	background-position:-5px -218px; 
 	width: 48px;
 	height: 89px;
@@ -355,7 +364,7 @@ body {
 	top: 400px;
 	z-index: 2;
 }
-.page3.current .bd .icon.icon9{
+.page3.current .bd .icon.icon7{
 	background-position: -148px -20px;
     left: 150px;
     top: 375px;
@@ -368,7 +377,7 @@ body {
 	top: 400px;
 	z-index: 8;
 }
-.page3.current .bd .icon.icon7{
+.page3.current .bd .icon.icon9{
 	background-position:-127px -82px; 
 	width: 68px;
 	height: 39px;
@@ -570,16 +579,6 @@ body {
 	-webkit-transform: rotate(20deg);
 }
 
-
-
-
-
-
-
-
-
-
-
 .page4.current .hd{
 	width: 100%;
 	position: absolute;
@@ -588,8 +587,16 @@ body {
 .page4.current .bd{
 	width: 100%;
 	position: absolute;
-	top:0;
+	top:10%;
 	left: 0;
+}
+@media (min-width:350px) and (max-width: 376px) {
+	.page4.current .bd{
+		width: 100%;
+		position: absolute;
+		top:5%;
+		left: 0;
+	}
 }
 .page4.current .bd .flowers{
 	background:  url(../images/christmas/flowers.png) no-repeat;
@@ -633,13 +640,14 @@ body {
 }
 .page4.current .fd{
 	width: 320px;
-	height: 113px;
+	height: 100px;
 	position: absolute;
 	top:90%;
 	left: 54%;
 	margin-left:-160px;
 	margin-top:-57px;
 }
+
 .page4.current .fd .txt{
 	background: url(../images/christmas/btn4.png) 0 0 no-repeat;
 	background-size: 291px 107px;
@@ -770,18 +778,3 @@ body {
 	display:none
 }
 .page.page2,.page.page3,.page.page4{display: none;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
