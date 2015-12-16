@@ -28,7 +28,6 @@ html,body{
 body {
 	font-size: 14px;
 	font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
-	background-color: #d23337;
 }
 
 /*弹出窗*/
@@ -58,32 +57,26 @@ body {
 }
 .full_page .page1.current{
 	background-image :url(../images/christmas/bg1.png);
-	overflow: hidden;
 	background-color: #d23337;
 }
 .full_page .page2.current{
 	background-image :url(../images/christmas/bg2.png);
 	background-color: #078669;
-	overflow: hidden;
 }
 .full_page .page3.current{
-	background-image :url(../images/christmas/bg3.png);
+	background-image :url(../images/christmas/bg1.png);
 	background-color: #d23337;
-	overflow: hidden;
 }
 .full_page .page4.current{
 	background-image :url(../images/christmas/bg2.png);
 	background-color: #078669;
-	overflow: hidden;
 }
-.full_page .page{
+.full_page .page.current{
 	background-size: 100% 100%;
 	max-width: 640px;
 	min-width: 320px;
 	height: 100%;
 	width: 100%;
-	min-height: 568px;
-	position: absolute;
 }
 .full_page .page1,.full_page .page2{
     background-size: 100% 100%;
@@ -232,21 +225,23 @@ body {
 	top: 35px;
 	z-index: 8
 }
-
-.page2.current .hd,.page2.current .bd .bg,.page2.current .bd .goods,.page2.current .bd .names{
-	background-size: 320px 568px;
+.page2.current .hd{
+	position: absolute;
+	left: 0;
+	top: 2%;
+}
+.page2.current .bd .bg,.page2.current .bd .goods,.page2.current .bd .names{
 	width: 100%;
 	position: absolute;
 	left: 0;
-	top:0;
+	top:15%;
 }
 
 .page2.current .tips{
-	background-size: 320px 568px;
     width: 100%;
     position: absolute;
     left: 0;
-    top: 76%;
+    top: 71%;
     z-index: 10;
 
 }
@@ -258,7 +253,13 @@ body {
     top: 85%;
     z-index: 20;
 }
-.page1.current .pointer1,.page2.current .pointer1{
+.page1.current .pointer1{
+	top:33%;
+	position: absolute;
+	left: 0;
+	z-index: 5;
+}
+.page2.current .pointer1{
 	top:0;
 	position: absolute;
 	left: 0;
@@ -632,7 +633,7 @@ body {
 }
 .page4.current .fd{
 	width: 320px;
-	height: 130px;
+	height: 113px;
 	position: absolute;
 	top:90%;
 	left: 54%;
