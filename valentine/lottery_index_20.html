@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+<meta name="description" content="几何社区">
+<title>幸运大抽奖</title>
+<style>
+*{margin:0;padding:0;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-text-size-adjust:none;}body{background:url(/tpl/simplebootx/Public/lottery/turntablebg.png);background-size:8px auto;font-size:14px;font-family:"Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif}.bodycont{position:absolute;width:100%;min-width:320px;top:0;left:0;bottom:0;right:0}.lottery-title{top:0;position:relative;width:100%;height:141px;background:url(/tpl/simplebootx/Public/lottery/lotteryTitle.png) no-repeat top center;background-size:375px auto;-webkit-background-size:375px auto}.lottery-content-circle{position:relative;background:url(/tpl/simplebootx/Public/lottery/lotterybg.png)no-repeat top center;background-size:375px auto;-webkit-background-size:375px auto;overflow:hidden;top:0;width:100%;height:493px}.lottery-roulette-face{position:absolute;width:261px;height:261px;background:url(/tpl/simplebootx/Activity/Lottery/images/roulette_face.png) no-repeat center center;background-size:261px;-webkit-background-size:261px;left:50%;margin-left:-130.5px;top:22px;z-index:1;-webkit-transform: rotateZ(0) translate3d(0px, 0px, 0px);transform: rotateZ(0) translate3d(0px, 0px, 0px);}.lottery-pointer{width:80px;height:113px;background:url(/tpl/simplebootx/Public/lottery/roulette_pointer.png)no-repeat center center;background-size:80px auto;-webkit-background-size:80px auto;position:absolute;left:50%;top:80px;z-index:200;margin-left:-40px}.lottery-btn{width:70px;height:70px;background:url(/tpl/simplebootx/Public/lottery/roulette_pointer_btn.png)no-repeat center center;position:absolute;background-size:70px auto;-webkit-background-size:70px auto;z-index:201;left:50%;top:118px;margin-left:-35px}.lottery-tip{text-align:center;width:100%;height:30px;line-height:30px;font-size:18px;color:#000;position:absolute;top:413px}.lottery-chance{color:#e7262d;font-size:24px;font-weight:bold}.share-btn{width:266px;color:#fff;font-size:18px;font-weight:bold;height:40px;text-align:center;line-height:40px;position:absolute;left:50%;margin-left:-130px;top:452px}.lottery-guide-show{width:90%;margin:0 auto;background-color:#fff799;padding:0 10px 10px 10px;border-radius:5px;-webkit-border-radius:5px;margin-bottom:30px;margin-top:65px}.lottery-guide-title{width:132px;height:30px;background:url(/tpl/simplebootx/Public/lottery/guide_show.png)no-repeat center center;background-size:132px auto;-webkit-background-size:132px auto;width:100%;position:relative;transform:translateY(-50%);-webkit-transform:translateY(-50%)}.lottery-rule-show{width:90%;margin:30px auto;padding:0 10px 10px 10px}.lottery-rule-title{height:30px;background:url(/tpl/simplebootx/Public/lottery/rule_show.png)no-repeat center center;background-size:289px auto;-webkit-background-size:289px auto;width:100%;position:relative;transform:translateY(-50%);-webkit-transform:translateY(-50%)}.lottery-guide-cont,.lottery-rule-cont{line-height:18px}.bodyovery{position:fixed;top:0;bottom:0;left:0;right:0;background-color:rgba(0,0,0,.5);z-index:999;display:none}.sharecont{height:173px;background:url(/tpl/simplebootx/Public/lottery/share.png)no-repeat top right;background-size:375px auto;-webkit-background-size:375px auto;width:100%;position:fixed;z-index:1000;display:none}.login,.tipscont{width:100%;position:relative;top:106px;z-index:1000;display:none}.tipstitle{color:#fff;font-size:15px;height:25px;line-height:25px;padding-bottom:18px;width:100%;text-align:center;background:url(/tpl/simplebootx/Public/lottery/tape.png)no-repeat top center;background-size:309px auto;-webkit-background-size:309px auto;position:absolute;top:-22px;z-index:2}.tipstxt{width:260px;margin:0 auto;background-color:#fafbc2;border-radius:8px;-webkit-border-radius:8px;padding:10px;padding-top:35px;margin-top:150px;text-align:center}.tipsimg{width:100%;height:150px;background:url(/tpl/simplebootx/Public/lottery/img.png)no-repeat;background-size:150px auto;background-position:center top;-webkit-background-size:150px auto;position:absolute;transform:translateY(-148px);-webkit-transform:translateY(-148px);z-index:0}.tipstxt p{color:#000;line-height:24px;font-size:15px}.tipstxt p span{color:#ff5253}.confirmbtn{display:inline-block;width:80px;height:24px;line-height:24px;font-size:12px;color:#fff;border-radius:4px;-webkit-border-radius:4px;text-decoration:none;background-color:#ff940c;margin-top:28px}.logintitle{font-size: 20px;text-align: center;line-height: 72px;font-weight: bold;}.inoutcont{padding:0 21px;overflow: hidden;}.inoutcont input{font-size: 12px;display: inline-block;height: 20px;line-height: 20px; color: #babb8e;border: 1px solid #babb8e;border-radius:4px;-webkit-border-radius: 4px;-webkit-box-flex: 1;box-flex: 1;-webkit-appearance: none;-webkit-tap-highlight-color: rgba(255,0,0,0);padding:5px 10px;width: 197px;margin-bottom: 12px;}#code{width: 100px;  float: left;}.loginbtn{width: 100%;height:30px;margin:0 auto;}.loginbtn a {display: inline-block;width: 120px;line-height: 30px; height:30px;text-align: center; font-size: 15px;color: #fafbc2;text-decoration: none;background-color: #ff5253;border-radius:4px;-webkit-border-radius:4px;}#codebtn{display: inline-block;float: right;width: 83px;height: 30px;line-height: 30px;text-decoration: none; border:1px solid #0078ff;border-radius: 4px;-webkit-border-radius: 4px;color: #0078ff;font-size: 12px;text-align: center;}#jHloader{position:fixed;z-index:99998;top:0;right:0;bottom:0;left:0;background:transparent}#jHloader .jHloader-body{position:absolute;top:50%;left:50%;width:156px;margin-top:-50px;margin-left:-78px;color:#fff;border-radius:10px;background:rgba(0,0,0,.8)}#jHloader .jHloader-icon{width:38px;height:38px}#jHloader .icon-close,#jHloader .icon-check,#jHloader .icon-more-horiz{font-size:24px;line-height:36px;display:block;width:38px;height:38px;text-align:center;border:2px solid #fff;border-radius:50%}#jHloader .jHloader-text{font-size:13px;line-height:1.2;padding:10px 0;padding-right:5px;padding-left:5px;text-align:center}#jHloader .jHloader-icon{width:100%;height:64px;padding:15px 43px 10px 43px}#jHloader .spinner-icon{width:38px;height:38px;-webkit-animation:loader-spinner 400ms linear infinite;animation:loader-spinner 400ms linear infinite;border:solid 2px transparent;border-top-color:#fff;border-left-color:#fff;border-radius:50%}@-webkit-keyframes loader-spinner{0%{ -webkit-transform:rotate(360deg)}
+    100%{ -webkit-transform:rotate(0deg)}}@keyframes loader-spinner{0%{transform:rotate(360deg)}100%{transform:rotate(0deg)}}
+	</style>
+</head>
+<body>
+<div class="bodycont">
+  <div class="lottery-title"></div>
+  <div class="lottery-content-circle">
+    <div class="lottery-roulette-face"></div>
+    <div class="lottery-pointer"></div><div></div>
+    <div id="mod-lottery-btn" class="lottery-btn"></div><div></div>
+    <p class="lottery-tip">您今天还可享<span id="lotteryChance" class="lottery-chance"><if condition="$uid">{$data.remain_times}<else/>{$data.day_times}</if></span>次抽奖机会</p>
+    <div class="share-btn">立即领取奖品</div>
+  </div>
+  <div class="lottery-guide-show">
+    <div class="lottery-guide-title"></div>
+    <div class="lottery-guide-cont">{$data.content.lottery|htmlspecialchars_decode}</div>
+  </div>
+  <div class="lottery-rule-show">
+    <div class="lottery-rule-title"></div>
+    <div class="lottery-rule-cont">{$data.content.activity|htmlspecialchars_decode}</div>
+  </div>
+</div>
+<!-- 蒙层 -->
+<div class="bodyovery"></div>
+<!-- 登录框 -->
+<div class="login">
+  <div class="tipstitle">登陆几何社区</div>
+  <div class="tipstxt">
+  <div class="inoutcont"><input type="tel" id="tel" name="text" placeholder="请输入手机号码" onfocus="this.type='number'" onblur="this.type='text'"><input type="number" id="code" name="number" placeholder="请输入验证码"><a href="javascript:void(0);" id="codebtn">获取验证码</a></div>
+  <div class="loginbtn"><a href="javascript:void(0);" id="loginok">登录</a></div></div>
+</div>
+<!-- 分享提示 -->
+<div class="sharecont"></div>
+<!-- 提示框 -->
+<div class="tipscont">
+<div class="tipsimg"></div><div class="tipstitle" id="tipstitle"></div><div class="tipstxt" id="tipstxt"></div>
+</div>
+<!-- js -->
+<script src=/tpl/simplebootx/Public/lottery/zepto.min.js></script>
+<if condition="$data[setting][is_share] eq 1">
+<script src=http://res.wx.qq.com/open/js/jweixin-1.0.0.js></script>
+</if>
+<script>
+<if condition="$data[setting][is_share] eq 1">
+wx.config({
+    debug: false,
+    appId: '{$js_sign.appid}',
+    timestamp: '{$js_sign.timestamp}',
+    nonceStr: '{$js_sign.noncestr}',
+    signature: '{$js_sign.signature}',
+    jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'hideMenuItems', 'showMenuItems', 'chooseImage', 'previewImage', 'uploadImage', 'downloadImage', 'hideOptionMenu', 'showOptionMenu']
+});
+wx.ready(function() {
+    wx.showOptionMenu();
+});
+//自定义分享链接
+//var desc_arr = ['几何社区有豪礼，iPhone6s、进口红酒、蜂蜜、橄榄油等免费送给你~'];
+var desc_arr = '{$data.desc}';
+var n = Math.floor(Math.random() * desc_arr.length + 1) - 1;
+var share = {
+    title: '每天大奖抽三次，注册就能拼手气！',
+    desc: desc_arr,
+    link: '{$js_sign.url}',
+    imgUrl: '{$data.imgurl}',
+    ftitle: desc_arr
+};
+_sharefriend(share);
+wx.error(function(res) {
+    alert(res.errMsg);
+});
+
+function _sharefriend(share) {
+    wx.ready(function() {
+        wx.onMenuShareAppMessage({
+            title: share.title,
+            desc: share.desc,
+            link: share.link,
+            imgUrl: share.imgUrl,
+            fail: function(res) {
+                alert(JSON.stringify(res));
+            }
+        });
+        wx.onMenuShareTimeline({
+            title: share.ftitle,
+            desc: share.desc,
+            link: share.link,
+            imgUrl: share.imgUrl,
+            fail: function(res) {
+                alert(JSON.stringify(res));
+            }
+        });
+    });
+}
+</if>
+var txtTime=0;
+(function($) {
+    $('.lottery-btn,.lottery-pointer').show();
+    var fromAngle = 0,
+        id = '{$data.mdstr}',
+        textarr = [
+            ['亲，继续加油哦', 'center bottom'],
+            ['亲，恭喜你', 'center top'],
+            ['亲，不好意思', 'center center']
+        ]; //提示语，图片位置
+    numtotal = 8, //奖品总数
+    circlenum = 6, //转动圈数
+    timespeed = 6, //转动时间s
+    logintype = true;
+    var href = location.href;
+    var tmp = href.split("?");
+    var req = [];
+    var region = "",
+        token = "";
+    if (tmp.length > 1) {
+        req = tmp[1].split("&");
+    }
+    if (req.length > 1) {
+        region = req[0].substring(req[0].indexOf("=") + 1, req[0].length);
+        token = req[1].substring(req[1].indexOf("=") + 1, req[1].length);
+    }
+		    $.ajax({
+                url: '/Activity/lottery/login',
+                type: 'get',
+                dataType: 'json',
+                success: function(res) {
+					if (res.statusCode === 0) {
+						logintype = false;
+					}else{
+						logintype = true;
+						showlogin();					
+					}	
+				}
+			})
+
+    $('#mod-lottery-btn').bind("click", function() {
+        // $this.prop('disabled', false);
+        if (logintype) {
+            showlogin();
+            return;
+        }
+        if ($('.lottery-btn').hasClass('disable')) return;
+        $('.lottery-btn').addClass('disable');
+        $.ajax({
+            url: '/activity/lottery/ajax_lottery',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'id': id
+            },
+            success: function(res) {
+                var num = 0; //获奖ID
+                if (res.statusCode === 0) {
+                    $('#lotteryChance').text(res.join_times);
+                    if (res.prize_id !=undefined) {
+                        num = res.prize_id;
+                        var targetAngle = num * (360 / numtotal);
+                        targetAngle += fromAngle + 360 * circlenum;
+                        fromAngle += 360 * circlenum;
+                        $(".lottery-roulette-face").animate({
+                            rotateZ: targetAngle + 'deg',
+                            translate3d: '0,0,0'
+                        }, timespeed * 1000, 'cubic-bezier(.48,.01,0,1)', function() {
+                            setTimeout(function() {
+                                if (num == 0) {
+                                    $('#tipstxt').html('<p>幸运女神就在转角，请再接再厉</p><a href="javascript:closetipstp();" class="confirmbtn">继续抽奖</a>');
+                                    tipsshow(0);
+                                } else {
+                                    res.prize_type == 2 ? $('#tipstxt').html('<p>恭喜您获得<span id="prize">' + res.prize_name + '</span> </p><p>优惠券将在1~3分钟内发放到您的账户</p><a href="javascript:closetipstp();" class="confirmbtn">确定</a>') : $('#tipstxt').html('<p>恭喜您获得<span id="prize">' + res.prize_name + '</span> </p><p>请点击下单领取</p><a href="' + res.url + '" class="confirmbtn">确定</a>');
+                                    tipsshow(1);
+                                }
+
+                                $('.lottery-btn').removeClass('disable');
+                            }, 500);
+                        });
+                    } else {
+                        $('#tipstxt').html('<p><span>您的抽奖机会用完了哦!</span></p><p style="font-size:12px;">赶紧去为商品写评论获取更多抽奖机会吧！</p><a href="javascript:closetipstp();" class="confirmbtn">好的</a>');
+                        tipsshow(2);
+						if(txtTime===0){
+							$('.bodyovery,.sharecont').show();
+							txtTime++;			
+						}
+                        $('.lottery-btn').removeClass('disable');
+                    }
+                } else {
+                    $('body').loader({
+                        status: 'error',
+                        text: res.msg
+                    })
+                    $('.lottery-btn').removeClass('disable');
+                }
+
+            },
+            error: function() {
+                console.log('数据获取失败');
+            }
+        });
+    });
+    $('#codebtn').bind("click", function() {
+        if (!$('#codebtn').prop('disabled')) {
+
+            var phone = $('#tel').val();
+            if (phone == "") {
+                $('body').loader({
+                    status: 'error',
+                    text: '请输入手机号'
+                })
+                return;
+            }
+            $('body').loader({
+                            status: 'loading',
+                            text: '发送中'
+                        })
+            $('#codebtn').prop('disabled', true);
+            $.ajax({
+                url: '/activity/lottery/regist',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    'phone': phone
+                },
+                success: function(res) {
+                    if (res.statusCode === 0) {
+                        count_down();
+                        $('body').loader({
+                            status: 'error',
+                            text: '验证码发送成功'
+                        })
+                    } else {
+                        $('body').loader({
+                            status: 'error',
+                            text: res.msg
+                        })
+                        $('#codebtn').prop('disabled', false);
+                    }
+                },
+                error: function() {
+                    $('body').loader({
+                        status: 'error',
+                        text: '数据获取失败'
+                    })
+                }
+            });
+        }
+    });
+    $('#loginok').bind("click", function() {
+        var phone = $('#tel').val(),
+            code = $('#code').val();
+        if (phone == "" && code == "") {
+            $('body').loader({
+                status: 'error',
+                text: '请输入手机号验证码'
+            })
+            return;
+        }
+        $.ajax({
+            url: '/activity/lottery/regist_code',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                'phone': phone,
+                'code': code
+            },
+            success: function(res) {
+                if (res.statusCode === 0) {
+                    $('body').loader({
+                        status: 'success',
+                        text: '登陆成功'
+                    })
+                    window.localStorage.setItem('username', tel);
+                    window.localStorage.setItem('token', res.token);
+                    window.localStorage.setItem('pass', res.pass);
+                    logintype = false;
+                    closetips();
+                } else {
+                    $('body').loader({
+                        status: 'error',
+                        text: res.msg
+                    })
+                }
+            },
+            error: function() {
+                $('body').loader({
+                    status: 'error',
+                    text: '数据获取失败'
+                })
+            }
+        });
+    });
+    $('.bodyovery,.sharecont').bind("click", function() {
+        closetips();
+    });
+    $('.share-btn').bind("click", function() {
+        //$('.bodyovery,.sharecont').show();
+		window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.geometry';
+    });
+
+    function showlogin() {
+        $('.bodyovery,.login').show();
+    }
+
+    function tipsshow(typenum) {
+        $('.tipsimg').css('background-position', textarr[typenum][1]);
+        $('#tipstitle').text(textarr[typenum][0]);
+        $('.bodyovery,.tipscont').show();
+    }
+
+    function count_down() {
+        var i = 60,
+            intervalid = setInterval(func, 1000);
+
+        function func() {
+            $('#codebtn').text(i + 's');
+            i--
+            if (i < 0) {
+                $('#codebtn').text('重新获取');
+                $('#codebtn').prop('disabled', false);
+                clearInterval(intervalid);
+                intervalid = null
+            }
+        }
+    }
+    //提示组件
+    $.extend($.fn, {
+        loader: function(config) {
+            var _config = {
+                status: 'info',
+                text: '加载中...',
+                duration: 1.2,
+                url: ''
+            };
+            var loadertime = null;
+            //合并参数
+            var opts = $.extend({}, _config, config);
+            var template = '<div id="jHloader"><div class="jHloader-body"><div class="jHloader-text">{{text}}</div></div></div>',
+                icon;
+            if (opts.status == 'loading') {
+                icon = '<div class="spinner"><div class="spinner-icon"></div></div>'
+            } else if (opts.status == 'info') {
+                icon = '<span class="icon-more-horiz"></span>'
+            } else if (opts.status == 'success') {
+                icon = '<span class="icon-check"></span>'
+            } else if (opts.status == 'error') {
+                icon = '<span class="icon-close"></span>'
+            }
+            template = template.replace("{{text}}", opts.text);
+            $('#jHloader').remove();
+            $('body').append(template);
+            clearTimeout(loadertime);
+            loadertime = null;
+            if (opts.status != 'loading') {
+                loadertime = setTimeout(function() {
+                    $('#jHloader').remove();
+                    if (opts.url) window.location.href = opts.url;
+                }, opts.duration * 1000);
+            }
+        }
+    });
+})(Zepto);
+function closetips() {
+
+    $('.bodyovery,.tipscont,.sharecont,.login').hide();
+};
+function closetipstp() {
+
+    $('.bodyovery,.tipscont,.sharecont,.login').hide();
+		if(txtTime===0){
+							$('.bodyovery,.sharecont').show();
+							txtTime++;			
+						}
+};
+</script>
+{$site_tongji}
+</body>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>幸运大抽奖</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+	<meta name="description" content="几何社区">
+<style type="text/css">
+	*{
+		margin: 0;
+		padding:0;
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
+		-webkit-text-size-adjust:none;
+	}
+	body{
+		background: url(./images/bg.png);
+		background-size: 8px auto;
+		font-size: 14px;
+		font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	}
+	.wrap{
+		position: absolute;
+		width: 100%;
+		min-width: 320px;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: url(./images/mainbg.png);
+		background-size: 375px auto;
+	}
+	.hd{
+		position: relative;
+		top: 0;
+		width: 100%;
+		height: 144px;
+		background: url(./images/title.png) no-repeat top center;
+		background-size: 375px auto;
+		-webkit-background-size: 375px auto;
+	}
+	.bd{
+		position: relative;
+		background: url(./images/lotteybg.png) no-repeat top center;
+		background-size: 375px auto;
+		-webkit-background-size: 375px auto;
+		top: 0;
+		width: 100%;
+		height: 492px;
+		overflow: hidden;
+	}
+	.bd-face{
+		position: absolute;
+		width: 261px;
+		height: 261px;
+		background: url(./images/face.png) no-repeat center center;
+		-webkit-background-size: 261px auto;
+		background-size: 261px auto;
+		left: 50%;
+		top: 22px;
+		margin-left: -131.5px;
+	}
+	.bd-pointer{
+		position: absolute;
+		width: 80px;
+		height: 113px;
+		background: url(./images/bd_pointer.png) no-repeat center center;
+		-webkit-background-size: 80px auto;
+		background-size: 80px auto;
+		left: 50%;
+		top: 80px;
+		margin-left: -40px;
+	}
+	.bd-btn{
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		background: url(./images/pointer_btn.png) no-repeat center center;
+		-webkit-background-size: 70px auto;
+		background-size: 70px auto;
+		left: 50%;
+		top: 118px;
+		margin-left: -35px;
+	}
+	.lottey-tip{
+		position: absolute;
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		color: #000;
+		text-align: center;
+		font-size: 18px;
+		top:410px;
+	}
+	.lottery-num {
+	    color: #e7262d;
+	    font-size: 24px;
+	    font-weight: bold;
+	}
+	.share-btn{
+		position: absolute;
+		width: 266px;
+		height: 40px;
+		line-height: 40px;
+		margin-left: -130px;
+		left: 50%;
+		color: #fff;
+		text-align: center;
+		font-size: 18px;
+		font-weight: bold;
+		top:452px; 
+	}
+
+	.fd{
+		width: 90%;
+		margin: 30px auto;
+	}	
+	.fd-title{
+		background: url(./images/rule_show.png) no-repeat center center;
+		height: 30px;
+		width: 100%;
+		background-size: 289px auto;
+		position: relative;
+	}
+	.fd-content{
+		line-height: 18px;
+	}
+	.login, .tipscont {
+	    width: 100%;
+	    position: relative;
+	    top: 106px;
+	    z-index: 1000;
+	    display: block;
+	}
+	.tiptitle {
+	    color: #fff;
+	    font-size: 15px;
+	    height: 25px;
+	    line-height: 25px;
+	    padding-bottom: 18px;
+	    width: 100%;
+	    text-align: center;
+	    background: url(./images/tape.png) no-repeat top center;
+	    background-size: 309px auto;
+	    position: absolute;
+	    top: -22px;
+	    z-index: 2;
+	}
+
+	.tipstxt{
+		width: 260px;
+		margin: 0 auto;
+		background-color:  #fafbc2;
+		border-radius: 8px;
+		-webkit-border-radius: 8px;
+		padding:8px;
+		padding-top: 35px;
+		margin-top: 150px;
+		text-align: center;
+	}
+	.logintitle {
+		font-size: 20px;
+		text-align: center;
+		line-height: 72px;
+		font-weight: bold;
+	}
+
+	.inoutcontent {
+		padding: 0 21px;
+		overflow: hidden;
+	}
+
+	.inoutcontent input {
+		font-size: 12px;
+		display: inline-block;
+		height: 20px;
+		line-height: 20px;
+		color: #babb8e;
+		border: 1px solid #babb8e;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-webkit-box-flex: 1;
+		box-flex: 1;
+		-webkit-appearance: none;
+		-webkit-tap-highlight-color: rgba(255,0,0,0);
+		padding: 5px 10px;
+		width: 197px;
+		margin-bottom: 12px;
+	}
+
+	#code {
+		width: 100px;
+		float: left;
+	}
+
+	.loginbtn {
+		width: 100%;
+		height: 30px;
+		margin: 0 auto;
+	}
+
+	.loginbtn a {
+		display: inline-block;
+		width: 120px;
+		line-height: 30px;
+		height: 30px;
+		text-align: center;
+		font-size: 15px;
+		color: #fafbc2;
+		text-decoration: none;
+		background-color: #ff5253;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+	}
+
+	#codebtn {
+		display: inline-block;
+		float: right;
+		width: 83px;
+		height: 30px;
+		line-height: 30px;
+		text-decoration: none;
+		border: 1px solid #0078ff;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		color: #0078ff;
+		font-size: 12px;
+		text-align: center;
+	}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="hd"></div>
+	<div class="bd">
+		<div class="bd-face"></div>
+		<div class="bd-pointer"></div>
+		<div class="bd-btn"></div>
+		<p class="lottey-tip">
+			您今天还可享<span class="lottery-num">2</span>次抽奖机会
+		</p>
+		<div class="share-btn">豪气分享好运</div>
+	</div>
+	<div class="fd">
+		<div class="fd-title"></div>
+		<div class="fd-content"></div>
+	</div>
+</div>
+
+
+<!-- 蒙层 -->
+<div class="bodyover"></div>
+
+<!-- 登录框 -->
+<div class="login">
+	<div class="tiptitle">登录几何社区</div>
+	<div class="tipstxt">
+		<div class="inoutcontent">
+			<input type="tel" id="tel" name="text" placeholder="请输入手机号码" />
+			<input id="code" name="number" placeholder="请输入验证码">
+			<a href="javascript:void(0);" id="codebtn">获取</a>
+		</div>
+		<div class="loginbtn"></div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,409 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	background: url(/tpl/simplebootx/Public/lottery/turntablebg.png);
+	background-size: 8px auto;
+	font-size: 14px;
+	font-family: "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif
+}
+
+.bodycont {
+	position: absolute;
+	width: 100%;
+	min-width: 320px;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0
+}
+
+.lottery-title {
+	top: 0;
+	position: relative;
+	width: 100%;
+	height: 141px;
+	background: url(/tpl/simplebootx/Public/lottery/lotteryTitle.png) no-repeat top center;
+	background-size: 375px auto;
+	-webkit-background-size: 375px auto
+}
+
+.lottery-content-circle {
+	position: relative;
+	background: url(/tpl/simplebootx/Public/lottery/lotterybg.png)no-repeat top center;
+	background-size: 375px auto;
+	-webkit-background-size: 375px auto;
+	overflow: hidden;
+	top: 0;
+	width: 100%;
+	height: 493px
+}
+
+.lottery-roulette-face {
+	position: absolute;
+	width: 261px;
+	height: 261px;
+	background: url(/tpl/simplebootx/Activity/Lottery/images/roulette_face.png) no-repeat center center;
+	background-size: 261px;
+	-webkit-background-size: 261px;
+	left: 50%;
+	margin-left: -130.5px;
+	top: 22px;
+	z-index: 1;
+	-webkit-transform: rotateZ(0) translate3d(0px, 0px, 0px);
+	transform: rotateZ(0) translate3d(0px, 0px, 0px);
+}
+
+.lottery-pointer {
+	width: 80px;
+	height: 113px;
+	background: url(/tpl/simplebootx/Public/lottery/roulette_pointer.png)no-repeat center center;
+	background-size: 80px auto;
+	-webkit-background-size: 80px auto;
+	position: absolute;
+	left: 50%;
+	top: 80px;
+	z-index: 200;
+	margin-left: -40px
+}
+
+.lottery-btn {
+	width: 70px;
+	height: 70px;
+	background: url(/tpl/simplebootx/Public/lottery/roulette_pointer_btn.png)no-repeat center center;
+	position: absolute;
+	background-size: 70px auto;
+	-webkit-background-size: 70px auto;
+	z-index: 201;
+	left: 50%;
+	top: 118px;
+	margin-left: -35px
+}
+
+.lottery-tip {
+	text-align: center;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 18px;
+	color: #000;
+	position: absolute;
+	top: 413px
+}
+
+.lottery-chance {
+	color: #e7262d;
+	font-size: 24px;
+	font-weight: bold
+}
+
+.share-btn {
+	width: 266px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	left: 50%;
+	margin-left: -130px;
+	top: 452px
+}
+
+.lottery-guide-show {
+	width: 90%;
+	margin: 0 auto;
+	background-color: #fff799;
+	padding: 0 10px 10px 10px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-bottom: 30px;
+	margin-top: 65px
+}
+
+.lottery-guide-title {
+	width: 132px;
+	height: 30px;
+	background: url(/tpl/simplebootx/Public/lottery/guide_show.png)no-repeat center center;
+	background-size: 132px auto;
+	-webkit-background-size: 132px auto;
+	width: 100%;
+	position: relative;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%)
+}
+
+.lottery-rule-show {
+	width: 90%;
+	margin: 30px auto;
+	padding: 0 10px 10px 10px
+}
+
+.lottery-rule-title {
+	height: 30px;
+	background: url(/tpl/simplebootx/Public/lottery/rule_show.png)no-repeat center center;
+	background-size: 289px auto;
+	-webkit-background-size: 289px auto;
+	width: 100%;
+	position: relative;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%)
+}
+
+.lottery-guide-cont,.lottery-rule-cont {
+	line-height: 18px
+}
+
+.bodyovery {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0,0,0,.5);
+	z-index: 999;
+	display: none
+}
+
+.sharecont {
+	height: 173px;
+	background: url(/tpl/simplebootx/Public/lottery/share.png)no-repeat top right;
+	background-size: 375px auto;
+	-webkit-background-size: 375px auto;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	display: none
+}
+
+.login,.tipscont {
+	width: 100%;
+	position: relative;
+	top: 106px;
+	z-index: 1000;
+	display: none
+}
+
+.tipstitle {
+	color: #fff;
+	font-size: 15px;
+	height: 25px;
+	line-height: 25px;
+	padding-bottom: 18px;
+	width: 100%;
+	text-align: center;
+	background: url(/tpl/simplebootx/Public/lottery/tape.png)no-repeat top center;
+	background-size: 309px auto;
+	-webkit-background-size: 309px auto;
+	position: absolute;
+	top: -22px;
+	z-index: 2
+}
+
+.tipstxt {
+	width: 260px;
+	margin: 0 auto;
+	background-color: #fafbc2;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 10px;
+	padding-top: 35px;
+	margin-top: 150px;
+	text-align: center
+}
+
+.tipsimg {
+	width: 100%;
+	height: 150px;
+	background: url(/tpl/simplebootx/Public/lottery/img.png)no-repeat;
+	background-size: 150px auto;
+	background-position: center top;
+	-webkit-background-size: 150px auto;
+	position: absolute;
+	transform: translateY(-148px);
+	-webkit-transform: translateY(-148px);
+	z-index: 0
+}
+
+.tipstxt p {
+	color: #000;
+	line-height: 24px;
+	font-size: 15px
+}
+
+.tipstxt p span {
+	color: #ff5253
+}
+
+.confirmbtn {
+	display: inline-block;
+	width: 80px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #fff;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	text-decoration: none;
+	background-color: #ff940c;
+	margin-top: 28px
+}
+
+.logintitle {
+	font-size: 20px;
+	text-align: center;
+	line-height: 72px;
+	font-weight: bold;
+}
+
+.inoutcont {
+	padding: 0 21px;
+	overflow: hidden;
+}
+
+.inoutcont input {
+	font-size: 12px;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	color: #babb8e;
+	border: 1px solid #babb8e;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-webkit-box-flex: 1;
+	box-flex: 1;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(255,0,0,0);
+	padding: 5px 10px;
+	width: 197px;
+	margin-bottom: 12px;
+}
+
+#code {
+	width: 100px;
+	float: left;
+}
+
+.loginbtn {
+	width: 100%;
+	height: 30px;
+	margin: 0 auto;
+}
+
+.loginbtn a {
+	display: inline-block;
+	width: 120px;
+	line-height: 30px;
+	height: 30px;
+	text-align: center;
+	font-size: 15px;
+	color: #fafbc2;
+	text-decoration: none;
+	background-color: #ff5253;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#codebtn {
+	display: inline-block;
+	float: right;
+	width: 83px;
+	height: 30px;
+	line-height: 30px;
+	text-decoration: none;
+	border: 1px solid #0078ff;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #0078ff;
+	font-size: 12px;
+	text-align: center;
+}
+
+#jHloader {
+	position: fixed;
+	z-index: 99998;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: transparent
+}
+
+#jHloader .jHloader-body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 156px;
+	margin-top: -50px;
+	margin-left: -78px;
+	color: #fff;
+	border-radius: 10px;
+	background: rgba(0,0,0,.8)
+}
+
+#jHloader .jHloader-icon {
+	width: 38px;
+	height: 38px
+}
+
+#jHloader .icon-close,#jHloader .icon-check,#jHloader .icon-more-horiz {
+	font-size: 24px;
+	line-height: 36px;
+	display: block;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	border: 2px solid #fff;
+	border-radius: 50%
+}
+
+#jHloader .jHloader-text {
+	font-size: 13px;
+	line-height: 1.2;
+	padding: 10px 0;
+	padding-right: 5px;
+	padding-left: 5px;
+	text-align: center
+}
+
+#jHloader .jHloader-icon {
+	width: 100%;
+	height: 64px;
+	padding: 15px 43px 10px 43px
+}
+
+#jHloader .spinner-icon {
+	width: 38px;
+	height: 38px;
+	-webkit-animation: loader-spinner 400ms linear infinite;
+	animation: loader-spinner 400ms linear infinite;
+	border: solid 2px transparent;
+	border-top-color: #fff;
+	border-left-color: #fff;
+	border-radius: 50%
+}
+
+@-webkit-keyframes loader-spinner {
+	0% {
+		-webkit-transform: rotate(360deg)
+	}
+
+	100% {
+		-webkit-transform: rotate(0deg)
+	}
+}
+
+@keyframes loader-spinner {
+	0% {
+		transform: rotate(360deg)
+	}
+
+	100% {
+		transform: rotate(0deg)
+	}
+}
