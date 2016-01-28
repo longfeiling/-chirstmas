@@ -370,7 +370,7 @@ body {
     top: 375px;
 }
 .page3.current .bd .icon.clickBtn{
-	background-position:-241px -68px; 
+	background-position:-241px -141px; 
 	width: 48px;
 	height: 89px;
 	left: 58px;
@@ -385,8 +385,9 @@ body {
 	top: 470px;
 }
 .page3.current .bd .lamp{
-	background-image:  url(../images/christmas/lamp3-1.png);
-	background-size:54px 44px;
+	background-image:  url(../images/christmas/icon3.png);
+	background-size: 320px 568px;
+	background-position: -236px -26px;
 	width: 54px;
 	height: 44px;
 	position: absolute;
@@ -395,7 +396,7 @@ body {
 	z-index: 5;
 }
 .page3.current .bd .lamp.on{
-	background-image:  url(../images/christmas/lamp3-3.png);
+	background-position: -236px -95px;
 	z-index: 6;
 }
 .page3.current .bd .lamp.lamp2{
