@@ -29,7 +29,7 @@
 		left: 0;
 		bottom: 0;
 		right: 0;
-		background: url(./images/mainbg.png);
+		background: url(./images/mainbg.png) no-repeat center;
 		background-size: 375px auto;
 	}
 	.hd{
@@ -134,6 +134,9 @@
 	    z-index: 1000;
 	    display: block;
 	}
+	.tipscont{
+		display: none;
+	}
 	.tiptitle {
 	    color: #fff;
 	    font-size: 15px;
@@ -230,6 +233,135 @@
 		text-align: center;
 	}
 
+	.bodyovery {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0,0,0,.5);
+		z-index: 999;
+		display: block;
+	}
+
+	.sharecont {
+		height: 173px;
+		background: url(./images/share.png)no-repeat top right;
+		background-size: 375px auto;
+		-webkit-background-size: 375px auto;
+		width: 100%;
+		position: fixed;
+		z-index: 1000;
+		display: none
+	}
+
+	.tipsimg {
+		width: 100%;
+		height: 150px;
+		background: url(./images/img.png)no-repeat;
+		background-size: 150px auto;
+		background-position: center top;
+		-webkit-background-size: 150px auto;
+		position: absolute;
+		transform: translateY(-148px);
+		-webkit-transform: translateY(-148px);
+		z-index: 0
+	}
+
+	.tipstxt p {
+		color: #000;
+		line-height: 24px;
+		font-size: 15px
+	}
+
+	.tipstxt p span {
+		color: #ff5253
+	}
+
+	#jHloader {
+		position: fixed;
+		z-index: 99998;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: transparent
+	}
+
+	#jHloader .jHloader-body {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 156px;
+		margin-top: -50px;
+		margin-left: -78px;
+		color: #fff;
+		border-radius: 10px;
+		background: rgba(0,0,0,.8)
+	}
+
+	#jHloader .jHloader-icon {
+		width: 38px;
+		height: 38px
+	}
+
+	#jHloader .icon-close,#jHloader .icon-check,#jHloader .icon-more-horiz {
+		font-size: 24px;
+		line-height: 36px;
+		display: block;
+		width: 38px;
+		height: 38px;
+		text-align: center;
+		border: 2px solid #fff;
+		border-radius: 50%
+	}
+
+	#jHloader .jHloader-text {
+		font-size: 13px;
+		line-height: 1.2;
+		padding: 10px 0;
+		padding-right: 5px;
+		padding-left: 5px;
+		text-align: center
+	}
+
+	#jHloader .jHloader-icon {
+		width: 100%;
+		height: 64px;
+		padding: 15px 43px 10px 43px
+	}
+
+	#jHloader .spinner-icon {
+		width: 38px;
+		height: 38px;
+		-webkit-animation: loader-spinner 400ms linear infinite;
+		animation: loader-spinner 400ms linear infinite;
+		border: solid 2px transparent;
+		border-top-color: #fff;
+		border-left-color: #fff;
+		border-radius: 50%
+	}
+
+	@-webkit-keyframes loader-spinner {
+		0% {
+			-webkit-transform: rotate(360deg)
+		}
+
+		100% {
+			-webkit-transform: rotate(0deg)
+		}
+	}
+
+	@keyframes loader-spinner {
+		0% {
+			transform: rotate(360deg)
+		}
+
+		100% {
+			transform: rotate(0deg)
+		}
+	}
+
 </style>
 </head>
 <body>
@@ -238,7 +370,7 @@
 	<div class="bd">
 		<div class="bd-face"></div>
 		<div class="bd-pointer"></div>
-		<div class="bd-btn"></div>
+		<div class="bd-btn" id="mod-lottery-btn"></div>
 		<p class="lottey-tip">
 			您今天还可享<span class="lottery-num">2</span>次抽奖机会
 		</p>
@@ -252,7 +384,7 @@
 
 
 <!-- 蒙层 -->
-<div class="bodyover"></div>
+<div class="bodyovery"></div>
 
 <!-- 登录框 -->
 <div class="login">
@@ -263,9 +395,272 @@
 			<input id="code" name="number" placeholder="请输入验证码">
 			<a href="javascript:void(0);" id="codebtn">获取</a>
 		</div>
-		<div class="loginbtn"></div>
+		<div class="loginbtn">
+			<a href="javascript:void(0);" id="loginok">登录</a>
+		</div>
 	</div>
 </div>
+
+<!-- 分享提示 -->
+<div class="sharecont"></div>
+
+<!-- 提示框 -->
+<div class="tipscont">
+	<div class="tipsimg"></div>
+	<div class="tiptitle" id="tiptitle"></div>
+	<div class="tipstxt" id="tipstxt"></div>
+</div>
+
+<!-- js -->
+<script type="text/javascript" src="./js/zepto.min.js"></script>
+<script type="text/javascript">
+var txtTime = 0;
+(function($){
+	var fromAngle = 0,
+	    id = '{$data.mdstr}',
+	    textarr = [
+	        ['亲，继续加油哦', 'center bottom'],
+	        ['亲，恭喜你', 'center top'],
+	        ['亲，不好意思', 'center center']
+	    ]; //提示语，图片位置
+	numtotal = 8, //奖品总数
+	circlenum = 6, //转动圈数
+	timespeed = 6, //转动时间s
+	logintype = true;
+
+    $.ajax({
+        url: '/Activity/lottery/login',
+        type: 'get',
+        dataType: 'json',
+        success: function(res) {
+			if (res.statusCode === 0) {
+				logintype = false;
+			}else{
+				logintype = true;
+				showlogin();					
+			}	
+		}
+	})
+
+	// 抽奖
+	$('#mod-lottery-btn').on('click',function(){
+		if(logintype){
+			showlogin();
+			return;
+		}
+		if ($('.lottery-btn').hasClass('disable')) return;
+		$('.lottery-btn').addClass('disable');
+
+		$.ajax({
+		    url: '/activity/lottery/ajax_lottery',
+		    type: 'post',
+		    dataType: 'json',
+		    data: {
+		        'id': id
+		    },
+		    success : function(res){
+		    	var num = 0;
+		    	if(res.statusCode == 0){
+		    		$('.lottery-num').text(res.join_times);
+		    		if(res.prize_id != undefined){
+		    			num = res.prize_id;
+		    			var targetAngle = num * (360 /numtotal);
+		    			targetAngle += fromAngle + 360 * circlenum;
+		    			fromAngle += 360 * circlenum;
+		    			$(".bd-face").animate({
+		    				rotateZ : targetAngle + 'deg',
+		    				translate3d : '0,0,0'
+		    			},timespeed * 1000,'cubic-bezier(.48,.01,0,1)',function(){
+		    				setTimeout(function(){
+		    					if (num == 0) {
+		    					    $('#tipstxt').html('<p>幸运女神就在转角，请再接再厉</p><a href="javascript:closetipstp();" class="confirmbtn">继续抽奖</a>');
+		    					    tipsshow(0);
+		    					} else {
+		    					    res.prize_type == 2 ? $('#tipstxt').html('<p>恭喜您获得<span id="prize">' + res.prize_name + '</span> </p><p>优惠券将在1~3分钟内发放到您的账户</p><a href="javascript:closetipstp();" class="confirmbtn">确定</a>') : $('#tipstxt').html('<p>恭喜您获得<span id="prize">' + res.prize_name + '</span> </p><p>请点击下单领取</p><a href="' + res.url + '" class="confirmbtn">确定</a>');
+		    					    tipsshow(1);
+		    					}
+
+		    					$('.lottery-btn').removeClass('disable');
+		    				},500);
+		    			})
+
+		    		}
+		    	}else{
+		    		$('#tipstxt').html('<p><span>您的今天的抽奖机会用完了哦!明天还可以过来抽奖哦</span></p><a href="javascript:closetipstp();" class="confirmbtn">好的</a>');
+		    		$('.lottery-btn').removeClass('disable');
+		    	}
+		    }
+		});
+
+	})
+
+	$('#codebtn').on('click',function(){
+		if(!$('#codebtn').prop("disabled")){
+			var phone = $('#tel').val();
+			if(!phone){
+				$('body').loader({
+					status : 'error',
+					text : '请输入手机号码'
+				});
+				return ;
+			}
+
+			$('body').loader({
+				status : 'loading',
+				text : '发送中'
+			});
+
+			$('#codebtn').prop("disabled",true);
+			$.ajax({
+				url : '/activity/lottery/regist',
+				type : 'post',
+				dataType : 'json',
+				data : {
+					'phone' : phone,
+				},
+				success : function(res){
+					if(res.statusCode == 0){
+						count_down();
+						$('body').loader({
+							status : 'success',
+							text : '验证码发送成功'
+						});
+					}else{
+						$('body').loader({
+							status : 'error',
+							text : res.msg
+						});
+						$('#codebtn').prop("disabled",false);
+					}
+				},
+				error : function(){
+					$('body').loader({
+						status : 'error',
+						text : '数据获取失败'
+					});
+				}
+			});
+		}
+	});
+
+	$('#loginok').on('click',function(){
+		var phone = $('#tel').val();
+		var code = $('#code').val();
+		if(phone == '' && code == ''){
+			$('body').loader({
+				status : 'error',
+				text : "请输入手机验证码"
+			});
+			return ;
+		}
+
+		$.ajax({
+			url : '/activity/lottery/regist_code',
+			type : 'post',
+			dataType : 'json',
+			data : {
+				'phone' : phone,
+				'code' : code
+			},
+			success : function(res){
+				if(res.statusCode == 0){
+					$('body').loader({
+						status : 'success',
+						text : "登录成功"
+					});
+					window.localStorge.setItem('username',phone);
+					window.localStorge.setItem('token',res.token);
+					window.localStorge.setItem('pass',res.pass);
+					logintype = false;
+					closetips();
+				}else{
+					$('body').loader({
+						status : 'error',
+						text : res.msg
+					});
+				}
+			},
+			error : function(){
+				$('body').loader({
+					status : 'error',
+					text : "获取数据失败"
+				});
+			}
+		});
+	})
+
+	$('.bodyovery,.sharecont').on("click", function() {
+	    closetips();
+	});
+
+	// 显示登录框
+	function showlogin() {
+        $('.bodyovery,.login').show();
+    }
+
+	// 关闭提示组件
+	function closetips(){
+		$('.bodyovery,.tipscont,.sharecont,.login').hide();
+	}
+
+	// 验证码倒计时
+	function count_down(){
+		var i = 60,
+			intervalid = setInterval(fuc,1000);
+
+		function fuc(){
+			$('#codebtn').text("重新获取");
+			$('#codebtn').prop('disabled',false);
+			clearInterval(intervalid);
+			intervalid = null;
+		}
+	}
+
+	 function tipsshow(typenum) {
+        $('.tipsimg').css('background-position', textarr[typenum][1]);
+        $('#tipstitle').text(textarr[typenum][0]);
+        $('.bodyovery,.tipscont').show();
+    }
+
+	// 提示组件
+	$.extend($.fn,{
+		loader : function(config){
+			var _config = {
+				status : 'info',
+				text : "加载中...",
+				duration : 1.2 ,
+				url : '',
+			};
+			var loadertime = null;
+			
+			// 合并参数
+			var opts = $.extend({},_config,config);
+			var template = '<div id="jHloader"><div class="jHloader-body"><div class="jHloader-text">{{text}}</div></div></div>',
+				icon;
+			if(opts.status == 'loading'){
+				icon = '<div class="spinner"><div class="spinner-icon"></div></div>';
+			}else if(opts == 'info'){
+				 icon = '<span class="icon-more-horiz"></span>';
+			}else if(opts == 'success'){
+				icon = '<span class="icon-check"></span>';
+			}else if(opts == 'error'){
+				 icon = '<span class="icon-close"></span>';
+			}
+			template = template.replace("{{text}}", opts.text);
+			$('.jHloader-body').remove();
+			$('body').append(template);
+			clearTimeout(loadertime);
+			loadertime = null;
+			if(opts != "loading"){
+				loadertime = setTimeout(function(){
+					$('#jHloader').remove();
+					if(opts.url) window.location.href = opts.url;
+				},opts.duration*1000);
+			}
+		}
+	})
+})(Zepto);	
+</script>
 
 </body>
 </html>
